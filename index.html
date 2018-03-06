@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>连连看</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html, body{
+            height: 100%;
+            width: 100%;
+        }
+        .box{
+            height: 90%;
+            width: 100%;
+            text-align: center;
+        }
+        .score{
+            font-size: 20px;
+            text-align: center;
+        }
+        .score span{
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+<p class="score">分数：<span class="scoreNum">0</span><button class="restart">重新开始</button></p>
+<div class="box"></div>
+<script src="createjs/easeljs-1.0.0.min.js"></script>
+<script src="createjs/TweenMax.js"></script>
+<script src="createjs/game.js"></script>
+<script>
+    let dom = document.querySelector('.box')
+    let scoreNum = document.querySelector('.scoreNum')
+    let newGame = new game({
+        dom,
+        scoreNum
+    })
+    let restart = document.querySelector('.restart')
+    restart.addEventListener('click', e => {
+        newGame.restart(true)
+    })
+</script>
+</body>
+</html>
